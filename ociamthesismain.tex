@@ -1,0 +1,247 @@
+\documentclass[12pt]{ociamthesis}  %  UPC logo
+%\documentclass[12pt,beltcrest]{ociamthesis} % use old belt crest logo
+%\documentclass[12pt,shieldcrest]{ociamthesis} % use older shield crest logo
+
+%load any additional packages
+\usepackage{amssymb}
+\usepackage{graphicx,pstricks}
+\usepackage{graphics}
+\usepackage{moreverb}
+\usepackage{subfigure}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{ragged2e}
+\usepackage{hangcaption}
+%\usepackage{txfonts}
+\usepackage{palatino}
+%\usepackage[table]{xcolor}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb} % define this before the line numbering.
+%\usepackage{ruler}
+\usepackage[noend]{algpseudocode}
+\usepackage{amsmath,amssymb} % define this before the line numbering.
+%\usepackage{ruler}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{bm,nicefrac} % bold math package
+\usepackage{amsmath}
+\usepackage{tikz}
+\DeclareMathOperator*{\argmax}{argmax}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{threeparttable}
+\usepackage[linesnumbered, ruled]{algorithm2e}
+\SetKwRepeat{Do}{do}{while}
+\usepackage{graphicx}
+\usepackage{color,soul}
+%\usepackage{fancyhdr}
+%\setlength{\headheight}{15pt}
+%\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\newcommand{\Ahmedfixed}[1]{{\color{ao} {[\textcolor{red}{\hl{fixed}}: #1]}}}
+\newcommand{\mycolor}[1]{{\color{gray} {[\textcolor{red}{\hl{fixed}}: #1]}}}
+\newcommand{\lluis}[1]{{\color{red}#1}} 
+\newcommand{\francesc}[1]{{\color{blue}#1}} 
+\definecolor{ao}{rgb}{0.0, 0.5, 0.0}
+
+\usepackage{xcolor}
+\usepackage{soul}
+
+\newcommand{\hlc}[2][yellow]{{%
+    \colorlet{foo}{#1}%
+    \sethlcolor{foo}\hl{#2}}%
+}
+
+
+\usepackage{amsmath}
+\DontPrintSemicolon
+%\usepackage{algorithm}
+%\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage[noend]{algpseudocode}
+\usepackage{amsmath,amssymb} % define this before the line numbering.
+%\usepackage{ruler}
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0, 0, 0.5} 
+\usepackage{amsmath}
+%\DeclareMathOperator*{\argmax}{argmax}
+\definecolor{bluegray}{rgb}{0.4, 0.6, 0.8}
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%% Gray box %%%%%%%%%%%%%%%
+\usepackage[breakable, theorems, skins]{tcolorbox}
+\DeclareRobustCommand{\mybox}[2][gray!20]{%
+\begin{tcolorbox}[   %% Adjust the following parameters at will.
+        breakable,
+        left=0pt,
+        right=0pt,
+        top=0pt,
+        bottom=0pt,
+        colback=#1,
+        colframe=#1,
+        width=\dimexpr\textwidth\relax, 
+        enlarge left by=0mm,
+        boxsep=5pt,
+        arc=0pt,outer arc=0pt,
+        ]
+        #2
+\end{tcolorbox}
+}
+
+
+%
+
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = red, %Colour of internal links RoyalBlue
+   % linkcolor    = violet, %Colour of internal links RoyalBlue
+   %linkcolor    =  bluegray, %Colour of internal links
+  %citecolor   = red %Colour of citations
+  %citecolor = blue %black darkblue
+  citecolor = darkblue
+}
+%{ \hypersetup{hidelinks} \tableofcontents }
+
+\hypersetup{linktoc = all}
+\hypersetup{linktoc = page} 
+
+\usepackage{lineno,hyperref}
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb} % define this before the line numbering.
+%\usepackage{ruler}
+\usepackage{color}
+\usepackage{threeparttable}
+%\usepackage[linesnumbered, ruled]{algorithm2e}
+\modulolinenumbers[4]
+\usepackage[noend]{algpseudocode}
+\usepackage{amsmath,amssymb} % define this before the line numbering.
+%\usepackage{ruler}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{bm,nicefrac} % bold math package
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{natbib}
+\bibpunct{(}{)}{,}{a}{}{;}
+\bibliographystyle{abbrvnat}
+\renewcommand{\citep}[1]{[\citealp{#1}]}
+%\DeclareMathOperator*{\argmax}{argmax}
+\usepackage{hyperref}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{enumitem} 
+
+\usepackage{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{xcolor}
+%\usepackage{soulpos}
+%\ulposdef{\hlc}[xoffset=1pt]{\mbox{\color{cyan!30}\rule[-.8ex]{\ulwidth}{3ex}}}
+%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\fancyhead[R]{}
+\fancyhead[L]{\chaptername\ \thechapter\ --\ \leftmark}
+
+\newcommand{\bert}{\ensuremath{%
+  \mathchoice{\includegraphics[height=2ex]{Figure-Ch5/Bert.png}} 
+    {\includegraphics[height=2ex]{Figure-Ch5/Bert.png}}
+    {\includegraphics[height=1.5ex]{Figure-Ch5/Bert.png}}
+    {\includegraphics[height=1ex]{Figure-Ch5/Bert.png}}
+}} 
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\rightmark}
+\fancyhead[R]{\thepage}
+%\renewcommand{\headrulewidth}{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%% from CVPR %%%%%%%%%%%%%%%%%
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
+\def\cf{\emph{c.f}\onedot} \def\Cf{\emph{C.f}\onedot}
+\def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot}
+%%%%%%%%%%%%%%%%%%%%%%%%%%CVPR %%%%%%%%%%%%%%%%%
+
+
+%input macros (i.e. write your own macros file called mymacros.tex 
+%and uncomment the next line)
+%\include{mymacros}
+
+%\title{Enhanceingccc cccText Spotting with Visual Context Information}   %note \\[1ex] is a line break in the title
+
+\title{Enhancing Scene Text with Visual Context Information} 
+%\author{by \\ Ahmed Sabir  \space \space  \\ Supervisors: \\ Professor Llu\'{\i}s Padr\'o\inst \\ Doctor Francesc Moreno-Noguer}%your name
+%\author{sasas }
+%\college{Ci\`{e}ncies de la Computaci\'{o}}  %your college
+
+%\college{ {\larger \textit{By}  \vspace{0.3cm} \\ Ahmed Sabir} \\  \vspace{0.1cm} Departament de Ci\`{e}ncies de la Computaci\'{o} }
+
+\college{ {\larger \textit{By}  \vspace{0.3cm} \\ Ahmed Sabir} }
+
+%\renewcommand{\submittedtext}{change the default text here if needed}
+\degree{Doctor of Philosophy}     %the degree
+\degreedate{Barcelona, February 2020}     
+%\degreedate{\small Copyright \textcopyright \space Ahmed Sabir 2020} %the degree date
+   
+%end the preamble and start the document
+\begin{document}
+
+
+
+%this baselineskip gives sufficient line spacing for an examiner to easily
+%markup the thesis with comments
+\baselineskip=18pt plus1pt
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+
+\maketitle                  % create a title page from the preamble info
+\include{dedication}        % include a dedication.tex file
+\include{acknowlegements}   % include an acknowledgements.tex file
+\include{abstract}          % include the abstract
+
+\begin{romanpages}          % start roman page numbering
+\tableofcontents            % generate and include a table of contents
+\listoffigures              % generate and include a list of figures
+\end{romanpages}            % end roman page numbering
+
+%now include the files of latex for each of the chapters etc
+\include{chapter1}
+\include{chapter2}
+\include{Chapter3}
+\include{Chapter4}
+\include{Chapter5}
+\include{Chapter6}
+\include{conclusions}
+
+%now enable appendix numbering format and include any appendices
+\appendix
+\include{appendix1}
+\include{appendix2}
+
+%next line adds the Bibliography to the contents page
+\addcontentsline{toc}{chapter}{Bibliography}
+%uncomment next line to change bibliography name to references
+%\renewcommand{\bibname}{References}
+\bibliography{refs}        %use a bibtex bibliography file refs.bib
+%\bibliographystyle{plain}  %use the plain bibliography style
+
+\end{document}
+
