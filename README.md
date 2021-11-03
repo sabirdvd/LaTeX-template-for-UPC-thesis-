@@ -1,5 +1,5 @@
 # UPC_thesis_Phd_LATX_template
- Oxf/Cambridge based Latex Phd template with ACL/CVPR conf temp inspired modification 
+ Oxf/Cambridge by By Keith A. Gillow based Latex Phd template with ACL/CVPR conf temp inspired modification 
 
 
 ```
