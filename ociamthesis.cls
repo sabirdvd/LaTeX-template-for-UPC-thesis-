@@ -131,7 +131,7 @@
     { Departament de Ci\`{e}ncies de la Computaci\'{o} \\  Universitat Polit\`ecnica de Catalunya \par}
     
 \vspace*{1ex}
-    {Supervisors: \\  Professor Llu\'{\i}s Padr\'o \\ Doctor Francesc  Moreno-Noguer \par}
+    {Supervisors: \\  xxx \par}
 
         
 \vspace*{25mm}
