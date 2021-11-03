@@ -5,3 +5,13 @@
 ```
 pdflatex ociamthesismain.tex 
 ```
+for the bibtext
+
+```
+bibtex ociamthesismain.aux
+``` 
+then run again
+
+```
+pdflatex ociamthesismain.tex 
+``
