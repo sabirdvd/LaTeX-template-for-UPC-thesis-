@@ -1,0 +1,149 @@
+\documentclass[border=10pt]{standalone}
+%%%<
+\usepackage{verbatim}
+\usepackage[utf8]{inputenc}
+\usepackage{filecontents}
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{babypink}{rgb}{0.96, 0.76, 0.76}
+\definecolor{blue(ncs)}{rgb}{0.0, 0.53, 0.74}
+\newcommand{\bert}{\ensuremath{%
+  \mathchoice{\includegraphics[height=2ex]{Bert-pic-removebg-preview.png}} 
+    {\includegraphics[height=2ex]{Bert-pic-removebg-preview.png}}
+    {\includegraphics[height=1.5ex]{Bert-pic-removebg-preview.png}}
+    {\includegraphics[height=1ex]{Bert-pic-removebg-preview.png}}
+}}
+%%%>
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+\usepackage{pgfplotstable}
+\begin{comment}
+%$\bert$
+This code was adopted from  Jake code on TeX.SE.
+\end{comment}
+\renewcommand*{\familydefault}{\sfdefault}
+\usepackage{sfmath}
+\begin{document}
+%\begin{comment}
+ 
+\begin{tikzpicture}
+  \centering
+  \begin{axis}[
+        ybar, axis on top,
+        title={},
+        legend cell align={left},
+        %height=8cm, width=10.5cm,
+        height=6cm, width=8.5cm,
+        %legend cell align={left},
+        %enlarge x limits={abs=0.5},
+      %  ybar,
+      % enlargelimits=-0.15,
+        %enlarge x limits=0.25,
+       % enlarge y limits={upper,value=0.2},
+        %legend cell align=left,
+        %enlarge x limits=0.5,
+        %major tick length=0cm,
+        %height=8cm, width=6.5cm,
+        bar width=0.4cm,
+        %ymajorgrids, tick align=inside,
+        ymajorgrids, tick align=inside,
+        major grid style={draw=white}, 
+        %enlarge y limits={value=.001,upper},
+        ymin=1000, ymax=20000 ,
+       % ybar, enlarge x limits={abs=1}
+        enlarge x limits={abs=0.4cm}
+        axis x line*=bottom,
+        max space between ticks=20pt,
+        %max space between ticks=40pt,
+        %axis y line*=right,
+        %enlargelimits=0.15,
+        %ymajorgrids, tick align=inside, % put more numbers
+        %axis y line*=left,
+        %axis x line*=left,
+        %xmin=0
+      % axis y line*=left,
+        %enlarge x limits={abs=0.5cm}
+        %enlarge x limits={abs=1}
+        %enlarge y limits={abs=1}
+        %ymin=0
+        %xticklabel style={rotate=90,anchor=base,yshift=-0.4cm,xshift=-0.9cm,color=black},
+         xticklabel style={rotate=90,yshift=-0.2cm,xshift=0,color=black},
+         % texxt inside the bar
+         %xticklabel style={rotate=90,yshift=-0.4cm,xshift=2cm,color=black},
+        tickwidth=0pt,
+        enlarge x limits=true,
+        legend cell align={right}
+        %title=Left-align Legend with pgfplots,
+        %legend cell align={left}
+        %legend style={draw=none}
+        legend style={
+            at={(0.5,0.96)},
+            anchor=west,
+            mark size=1pt,
+            legend columns=-1,
+           % /tikz/every even column/.append style={column sep=0.cm}
+            every node near coord/.append style={font=\tiny}
+        },
+        ylabel={Frequency},
+        symbolic x coords={
+           %Baseline ,$\bert$ BERT,$\diamondsuit$ FDCLSTM, $\spadesuit$ TWE, 
+       ski, ball, plate, ballplayer, car, racket, baseball, washbasin, restaurant, elephant, parachute, traffic, umbrella, alp, passenger, pizza, #    
+           %Jan-12,Feb-12,
+           %Mar-12,
+          },
+       xtick=data,
+       enlarge x limits={abs=0.01},
+       nodes near coords={
+       % \pgfmathprintnumber[precision=0]{\pgfplotspointmeta}
+       }
+    ]
+    %\addplot [draw=none, fill=black!30] coordinates {
+    \addplot [draw=none, fill=babyblue!30] coordinates {
+      %(Baseline , 26.2)
+      (ski, 19289) 
+      (ball, 17520) 
+      (plate, 14541)
+      (ballplayer, 14238) 
+      (car, 13470)
+      (racket, 12935)
+      (baseball, 11846)
+      (washbasin, 11472)
+      (restaurant, 9914)
+      (elephant, 9733)
+      (parachute, 9399)
+      (traffic, 9272)
+      (umbrella, 9196)
+      (alp, 8868)
+      (passenger,  8353)
+      (pizza, 8317)  
+      (#, 8309)
+     % (seashore,8181)
+      %(wing,8034)
+      };
+
+   \addplot [draw=none,fill=red!30] coordinates {
+
+        
+     (ski, 1272) 
+     %(ball, 0) 
+     (plate, 4522)
+     (pizza, 3507)
+     (#, 2119) 
+     (baseball, 5153)
+     (elephant, 1984)
+
+     };
+    
+ 
+    
+  \legend{Visual context, Overlapping visual}
+  \end{axis}
+  \end{tikzpicture}
+
+     
+
+
+
+
+  
+\end{document}

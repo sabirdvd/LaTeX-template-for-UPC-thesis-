@@ -1,0 +1,246 @@
+\documentclass[border=10pt]{standalone}
+%%%<
+\usepackage{verbatim}
+\usepackage[utf8]{inputenc}
+\usepackage{filecontents}
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{babypink}{rgb}{0.96, 0.76, 0.76}
+\definecolor{blue(ncs)}{rgb}{0.0, 0.53, 0.74}
+\definecolor{pistachio}{rgb}{0.58, 0.77, 0.45}
+\definecolor{darksalmon}{rgb}{0.91, 0.59, 0.48}
+\definecolor{lightsalmonpink}{rgb}{1.0, 0.6, 0.6}
+\definecolor{columbiablue}{rgb}{0.61, 0.87, 1.0}
+\definecolor{corn}{rgb}{0.98, 0.93, 0.36}
+\definecolor{jonquil}{rgb}{0.98, 0.85, 0.37}
+\definecolor{bananayellow}{rgb}{1.0, 0.88, 0.21}
+\newcommand{\bert}{\ensuremath{%
+  \mathchoice{\includegraphics[height=2ex]{Bert-pic-removebg-preview.png}} 
+    {\includegraphics[height=2ex]{Bert-pic-removebg-preview.png}}
+    {\includegraphics[height=1.5ex]{Bert-pic-removebg-preview.png}}
+    {\includegraphics[height=1ex]{Bert-pic-removebg-preview.png}}
+}}
+%%%>
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+\usepackage{pgfplotstable}
+\begin{comment}
+%$\bert$
+This code was adopted from  Jake code on TeX.SE.
+\end{comment}
+% control the font here 
+\renewcommand*{\familydefault}{\sfdefault}
+%\usepackage{sfmath}
+\begin{document}
+%\begin{comment}
+ 
+\begin{tikzpicture}
+  \centering
+  \begin{axis}[
+        ybar, axis on top,
+        title={},
+        legend cell align={left},
+        %grid=both,
+        grid=minor,
+        %xmajorgrids=true,
+        %ymajorgrids=true,
+        %grid=major,
+        %minor tick num=5,
+       % width=\textwidth,
+        %height=8cm, width=10.5cm,
+        height=6cm, width=8.5cm,
+        %axis x line*=bottom,
+        %axis y line*=bottom,
+        ymin=0,
+        %legend cell align={left},
+        %enlarge x limits={abs=0.5},
+      %  ybar,
+      % enlargelimits=-0.15,
+        %enlarge x limits=0.25,
+       % enlarge y limits={upper,value=0.2},
+        %legend cell align=left,
+        %enlarge x limits=0.5,
+        %major tick length=0cm,
+        %height=8cm, width=6.5cm,
+        bar width=0.14cm,
+        %ymajorgrids, tick align=inside,
+        %grid=major,
+        ymajorgrids, tick align=inside,
+        major grid style={draw=white}, 
+        %enlarge y limits={value=.001,upper},
+        ymin=1000, ymax=13000,
+       % ybar, enlarge x limits={abs=1}
+        enlarge x limits={abs=0.1cm}
+        axis x line*=bottom,
+        max space between ticks=14pt,
+        %max space between ticks=40pt,
+        %axis y line*=right,
+        %enlargelimits=0.15,
+        %ymajorgrids, tick align=inside, % put more numbers
+        %axis y line*=left,
+        %axis x line*=left,
+        %xmin=0
+      % axis y line*=left,
+        %enlarge x limits={abs=0.5cm}
+        %enlarge x limits={abs=1}
+        %enlarge y limits={abs=1}
+        %ymin=0
+        %xticklabel style={rotate=90,anchor=base,yshift=-0.4cm,xshift=-0.9cm,color=black},
+        % xticklabel style={rotate=90,yshift=-0.2cm,xshift=0,color=black},
+           xticklabel style={rotate=90,yshift=-0.05cm,xshift=0,color=black},
+         % texxt inside the bar
+         %xticklabel style={rotate=90,yshift=-0.4cm,xshift=2cm,color=black},
+        tickwidth=0pt,
+        enlarge x limits=true,
+        legend cell align={right}
+        %title=Left-align Legend with pgfplots,
+        %legend cell align={left}
+        %legend style={draw=none}
+        legend style={
+            at={(0.5,0.96)},
+            anchor=west,
+            mark size=1pt,
+            legend columns=-1,
+           % /tikz/every even column/.append style={column sep=0.cm}
+            every node near coord/.append style={font=\tiny}
+        },
+        ylabel={Frequency},
+        symbolic x coords={
+           %Baseline ,$\bert$ BERT,$\diamondsuit$ FDCLSTM, $\spadesuit$ TWE, 
+     ski, clothing, ballplayer, tree, pizza, street, sign, car, washbasin, table, plate, human, light, seat, airliner, baseball
+           %Jan-12,Feb-12,
+           %Mar-12,
+          },
+       xtick=data,
+       %enlarge x limits,
+       %enlarge x limits=0.2,
+       %enlarge y limits={rel=-0.9,upper},
+       enlarge x limits={abs=0.01},
+       enlarge x limits=0.05,
+        enlarge y limits=0.05,
+       %restrict x to domain=1:2
+       nodes near coords={
+       % \pgfmathprintnumber[precision=0]{\pgfplotspointmeta}
+       }
+    ]
+    %\addplot [draw=none, fill=black!30] coordinates {
+    \addplot [draw=none, fill=pistachio!40] coordinates {
+      %(Baseline , 26.2)
+     %  (,6000 )
+      (ski,  12766) 
+      (clothing, 9596)  
+      (ballplayer, 10747) 
+      (tree, 10460)
+      (pizza, 8972)
+      (street, 8945) 
+      (sign, 8659)
+      (car, 8080) 
+      (washbasin, 8046)  
+      (table, 6792)       
+      (plate, 6696)       
+      (human, 6793)       
+      (light, 6335)      
+      (seat, 6031) 
+      (airliner, 5461)    
+      (baseball,  5075)          
+      %(plate, 1085)
+      %(ballplayer, 14238) 
+      %(car, 1069)
+     % (racket, 2599)
+     % (baseball, 0)
+     % (washbasin, 2283)
+     %  (elephant, 1223 )
+   %   (restaurant, 0)
+     % (elephant, 973)
+    %  (parachute, 9399)
+    %  (traffic, 0)
+    %  (umbrella, 9196)
+     % (alp, 8868)
+     % (passenger,  8353)
+     % (pizza, 1209)  
+      
+      %(#,6000 )
+     % (seashore,8181)
+      %(wing,8034)
+      };
+      % };
+      %(Jan-12,67.5600) 
+      %(Feb-12,88.2339)
+      %(Mar-12,78.6138) 
+    %  (Apr-12,58.9129) };
+   \addplot [draw=none,fill=darksalmon!50] coordinates {
+     (ski,  10901)
+     (clothing, 6682)    
+    (ballplayer, 9468)
+    (tree,  8307)
+    (pizza, 8546)
+    (street, 7690)
+    (sign, 7468)
+    (car, 6358) 
+    (washbasin, 7216)   
+    (table, 5456)    
+    (plate, 5213)       
+    (human, 4917)     
+    (light, 5357)   
+     (seat, 5714)
+     (airliner, 5246) 
+     (baseball,  4752)
+     %(ball, 1504) 
+     %(plate, 4522)
+              
+     %(pizza,8972)
+    % (x, 222) 
+     %(baseball, 5153)
+     %(car, 3079)
+     %(baseball, 2437)
+     %(washbasin, 2486)
+     %(restaurant, 0)
+     %(elephant, 1223 )
+    
+     %(parachute, 0)
+     
+     };
+    
+     % (Jan-12,77.5600) 
+     % (Feb-12,78.2339)
+     % (Mar-12,88.6138) 
+     % (Apr-12,78.9129) }
+  % \addplot [draw=none, fill=blue!30] coordinates {
+  
+   \addplot [draw=none, fill=bananayellow!30] coordinates {
+     (ski, 8679)
+     (clothing, 3659)    
+     (ballplayer,  7844)
+     (tree, 5503) 
+     (pizza, 7744)       
+     (street, 5673)     
+     (sign, 5541)
+     (car, 4168)     
+     (washbasin, 5808)   
+     (table, 3728)    
+     (plate, 3327)     
+     (human, 2898)
+     (light, 4014)
+     (seat, 5002) 
+     (airliner, 4501)    
+     (baseball,  4186 )
+    %  (x, 222) 
+        % (LSTM-V (K3), 40)
+      %(LSTM-V (K3), 434)
+    % (CNN-90K (CNN-90K (K4)), 345)
+     	
+      };
+    
+  \legend{Sim $th\geq 0.2$, Sim $th\geq 0.3$, Sim $th\geq 0.4$ }
+  \end{axis}
+  \end{tikzpicture}
+     % ($\bert$ BERT, 26.52 ) 
+     % ($\diamondsuit$ FDCLSTM,25.57) 
+     % ($\spadesuit$ TWE,  25.34)
+     
+
+
+
+
+  
+\end{document}
