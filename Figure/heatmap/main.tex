@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Latex_heatmap}
+\author{asabir}
+%\date{November 2021}
+\usepackage{pgf}
+\usepackage{collcell}
+\usepackage{booktabs}\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+%\usepackage{caption}
+\usepackage{breqn}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{graphics}
+\usepackage{afterpage}
+\usepackage{colortbl}
+\definecolor{Gray}{gray}{0.9}
+
+
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+% This selects the amount of color to use
+%\newcommand*{\MinNumber}{0.00001}%
+%\newcommand*{\MaxNumber}{100}%
+%\newcommand*{\MaxNumber}{0.1}%
+
+\newcommand*{\MinNumber}{0}%
+%\newcommand*{\MaxNumber}{100}%
+\newcommand*{\MaxNumber}{0.4}%
+\definecolor{bubblegum}{rgb}{0.99, 0.76, 0.8}
+\newcommand{\ApplyGradient}[1]{%
+  \pgfmathsetmacro{\PercentColor}{100.0*(#1-\MinNumber)/(\MaxNumber-\MinNumber)}%
+  %\textcolor{black!\PercentColor}{#1}
+  \edef\x{\noexpand\cellcolor{babyblue!\PercentColor}}\x\textcolor{black}{#1}%
+}
+\newcolumntype{R}{>{\collectcell\ApplyGradient}{c}<{\endcollectcell}}
+\begin{document}
+
+
+\begin{table}
+\centering
+\small 
+\caption{Comparison between knowledge base embedding and count-based embedding. The v$_n^1$ indicates the sense embedding. }
+\resizebox{\linewidth}{!}{
+\begin{tabular}{ |c| c| c|R|R|} 
+
+ \hline 
+  \multicolumn{5}{|c|}{Examples of sense embedding }  \\
+\hline \hline 
+\rowcolor{Gray}
+  %\multicolumn{1}{c} {Tool} &
+   \multicolumn{1}{|c} {Word} & \multicolumn{1}{|c} {Visual} &  \multicolumn{1}{|c} {sense$_n^1$} &  \multicolumn{1}{|c|} {sim(w,v)\cite{}}
+   & \multicolumn{1}{c|} {sim(w,s$_n^1$)\cite{}} \\
+  \hline \hline 
+
+under      & kimono & robe & 0.14  & 0.17      \\  
+electric   & streetcar &  vehicle  & 0.24 &  0.15 \\ 
+design   &  bathroom     & bathroom &  0.33 &  0.10  \\ 
+station  &  street & street &0.21  &  0.23  \\ 
+year &   residential & district  & 0.24 & 0.09 \\  
+riding & ski & sport & 0.40 &   0.30 \\ 
+%\hline 
+\hline 
+
+\end{tabular}
+}
+\label{tb:example-sense-embedding}
+\end{table}
+
+\end{document}
