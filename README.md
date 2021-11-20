@@ -10,8 +10,9 @@
 
 
 ## Overview 
-[Oxford/Cambridge LaTeX Phd thesis template](https://github.com/mcmanigle/OxThesis) with ACL/CVPR conf temp inspired modification.
+This is a template that based on [Oxford/Cambridge LaTeX Phd thesis template](https://github.com/mcmanigle/OxThesis) with ACL/CVPR confer template inspired modification.
 
+To complie the template
 ```
 pdflatex ociamthesismain.tex 
 ```
