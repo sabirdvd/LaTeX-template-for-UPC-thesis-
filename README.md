@@ -4,7 +4,7 @@
 
 ##  Contents
 0. [Overview](#Visual-semantic-with-BERT)
-3. [Figures](#dataset)
+3. [Figures](#https://github.com/sabirdvd/LaTeX-template-for-UPC-thesis-/tree/main/Figure)
 4. [Table](#Visual-semantic-with-pre-trained-model)
 5. [Cover](#Visual-semantic-with-pre-trained-model)
 
