@@ -4,12 +4,9 @@ pdflatex cover.tex
 ```
 
 
-This cover is by Ariel Soto-Caro (asotocaro@ufl.edu)
-
-from 
+This cover is by Ariel Soto-Caro (asotocaro@ufl.edu) based on a titlepage design in the top left picture on Page 159 of
 
 ```bibtex
-% Based on a titlepage design in the top left picture on Page 159 of
 % @BOOK{de:Jong:Type:2,
 %   title     = {Type
 %                \emph{A Visual History of Typefaces and Graphic Styles
