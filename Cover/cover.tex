@@ -1,0 +1,289 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Problem Set/Assignment Template to be used by the
+%% Food and Resource Economics Department - IFAS
+%% University of Florida's graduates.
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Version 1.0 - November 2019
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Ariel Soto-Caro
+%%  - asotocaro@ufl.edu
+%%  - arielsotocaro@gmail.com
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass{article}
+\documentclass{book}
+%\usepackage{libertinus}
+\usepackage[svgnames,table]{xcolor}
+\usepackage{tabularx}
+\usepackage{url,ragged2e}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\usepackage{geometry}
+%\documentclass{ociamthesis}
+
+% Based on a titlepage design in the top left picture on Page 159 of
+% @BOOK{de:Jong:Type:2,
+%   title     = {Type
+%                \emph{A Visual History of Typefaces and Graphic Styles
+%                \emph{1901\thinspace\textemdash\thinspace1938}}},
+%   volume    = {2},
+%   editor    = {de Jong, Cees W.},
+%   publisher = {Taschen},
+%   isbn      = {978-3-8365-1514-6},
+% }
+% The typeface in the original design is _Eine Neue Groteske, 1911,_
+%  by Schriftgie{\ss}erei Ludwig \&~Mayer, Frankfurt am Main.
+
+% Author: M.\,R.\,C. van Dongen
+
+%\usepackage[a4paper]{geometry}
+%\usepackage[paper=a4paper,margin=.1in]{geometry}
+
+
+
+% incude tikz and tikz libraries.
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usetikzlibrary{intersections}
+\usetikzlibrary{calc}
+% The following may be omitted---they're only useful if you
+% want to create a stand alone version of the title page.
+\usetikzlibrary{external}
+\tikzexternalize
+
+% distance commands
+\newcommand*\Separation{0.05}
+\newcommand*\TotalHeight{17.5}
+\newcommand*\Rows{14}
+\newcommand*\MidRows{10}
+\newcommand*\PredMidRows{9}
+\newcommand*\SuccMidRows{11}
+\newcommand*\Cols{11}
+\newcommand*\PredMidCols{5}
+\newcommand*\SuccMidCols{7}
+\newcommand*\MidCols{6}
+\newcommand*\PredCols{10}
+\newcommand*\PredRows{13}
+
+%color 
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{awesome}{rgb}{1.0, 0.13, 0.32}
+\definecolor{babyblueeyes}{rgb}{0.63, 0.79, 0.95}
+
+
+% colour commands (yellow)
+%\colorlet{FillBackground}{yellow!30}
+%\colorlet{FillInnerSquare}{orange!50}
+%\colorlet{DrawOuter}{black!80!blue}
+
+
+% colour commands (blue)
+
+\colorlet{FillBackground}{beaublue}
+\colorlet{FillInnerSquare}{babyblueeyes}
+\colorlet{DrawOuter}{black!80!blue}
+
+
+
+% line width commands
+\newcommand*\LineWidth{0.05}
+
+% auxiliary dimensions for positions of ornaments
+\newdimen\centrexpos
+\newdimen\centreypos
+% draw fancy ornamental shape (much simpler than the original shape)
+\newcommand*\DrawOrnament[2]{%
+    \centrexpos=\TotalHeight cm%
+    \divide\centrexpos by \Rows%
+    \centreypos=\centrexpos%
+    \multiply\centrexpos by #2%
+    \multiply\centreypos by #1%
+    \foreach \a/\b/\c/\d in {1/0/0/1,-1/0/0/1,1/0/0/-1,-1/0/0/-1} {
+          \begin{scope}%
+          \pgftransformcm{\a}{\b}{\c}{\d}{\pgfpoint{\centrexpos}{\centreypos}}%
+          \DrawOrnamentHelper%
+          \end{scope}%
+    }%
+}
+
+% some style
+\tikzset{draw style/.style={line cap=round,line join=round,draw=DrawOuter,line width=\LineWidth cm}}
+
+% helper macro for \DrawOrnament
+\newcommand*\DrawOrnamentHelper{%
+    \draw[name path=big spiral,draw style]
+         let \n{wd}={\TotalHeight/\Rows},
+             \n{dx}={\n{wd}},
+             \n{dy}={\n{wd}},
+             \n{first step}={0},
+             \n{last step}={99},
+             \n{windings}={2.75},
+             \n{angle increment}={360*\n{windings}/(\n{last step}-\n{first step}+1)},
+             \n{sep}={0.5*(\Separation+\LineWidth)},
+             \n{sepx}={\n{sep}},
+             \n{sepy}={\n{sep}},
+             \n{rad}={(\n{wd}-2*\n{sep})*\n{windings}/(2*\n{windings}-0.5)},
+             \n{voffset}={\n{rad}*(\n{windings}-0.5)/\n{windings}},
+             \n{hoffset}={(0.5*\LineWidth)+(\n{rad}*(\n{windings}-0.25)/\n{windings}},
+             \n{radx}={\n{rad}},
+             \n{rady}={\n{rad}}
+         in
+            (0,0) + (2*\n{dx},0)      coordinate (outer lr)
+                  + (2*\n{dx},\n{dy}) coordinate (outer ur)
+                  + (0,\n{dy})        coordinate (outer ul)
+                  + (0,0)             coordinate (outer ll)
+              (outer lr) + (-\n{sepx},\n{sepy}) coordinate (inner lr)
+              (outer ur) + (-\n{sepx},-\n{sepy}) coordinate (inner ur)
+              (outer ul) + (0,-\n{sepy})  coordinate (inner ul)
+              (outer ll) + (0,\n{sepy})   coordinate (inner ll)
+              (inner ll) + (\n{hoffset},\n{voffset}) coordinate (fst centre)
+              ($(inner lr)!0.2!(inner ll)$) coordinate (start)
+              ($(inner ur)!0.35!(inner ul)$) coordinate (end)
+              (start) -- (inner lr) -- (inner ur) -- (end)
+              \foreach \num in {\n{first step},...,\n{last step}} {
+                  let \n{rd0}={(\n{rad}*\num)/\n{last step}},
+                      \n{rd2}={(\n{rad}*(\num+1))/\n{last step}},
+                      \n{a0}={\num*\n{angle increment}},
+                      \n{a1}={\n{a0}-0.01},
+                      \n{a3}={(\num+1)*\n{angle increment}},
+                      \n{a2}={\n{a3}+0.01}
+                  in ($(fst centre)+(-\n{a0}:\n{rd0})$) coordinate(\num@0)
+                     ($(fst centre)+(-\n{a1}:\n{rd0})$) coordinate(\num@1)
+                     ($(fst centre)+(-\n{a2}:\n{rd2})$) coordinate(\num@2)
+                     ($(fst centre)+(-\n{a3}:\n{rd2})$) coordinate(\num@3)
+                     (\num@0) .. controls (\num@1) and (\num@2) .. (\num@3)
+              }
+              (\n{last step}@3) coordinate (p1)
+              (p1) + (1.2*\n{radx},0) coordinate (p2)
+              (start) + (-0.65*\n{radx},1.3*\n{rady}) coordinate (p3)
+              (p1) .. controls (p2) and (p3) .. (start)
+              ($(end)+(-\n{dx},-\n{dy})$) coordinate (aux) ;
+    \draw[name path=small spiral,draw style]
+         ($(inner ll)!0.675!(inner lr)$) coordinate (temp1)
+         ($(inner lr)!0.115!(inner ur)$) coordinate (temp2)
+         (temp1 |- temp2) coordinate (snd centre)
+              \foreach \num in {8,...,45} {
+                  let \n{rad}={0.75*(\Separation+\LineWidth)},
+                      \n{rd0}={(\n{rad}*\num)/20},
+                      \n{rd2}={(\n{rad}*(\num+1))/20},
+                      \n{a0}={\num*10},
+                      \n{a1}={\n{a0}-0.01},
+                      \n{a3}={(\num+1)*10},
+                      \n{a2}={\n{a3}+0.01}
+                  in  ($(snd centre)+(\n{a0}:\n{rd0})$) coordinate(\num@0)
+                     ($(snd centre)+(\n{a1}:\n{rd0})$) coordinate(\num@1)
+                     ($(snd centre)+(\n{a2}:\n{rd2})$) coordinate(\num@2)
+                     ($(snd centre)+(\n{a3}:\n{rd2})$) coordinate(\num@3)
+                     (\num@0) .. controls (\num@1) and (\num@2) .. (\num@3)
+              };
+    \draw[draw style]
+         let \n{dx}={\TotalHeight/\Rows} in
+             (fst centre |- inner ll) coordinate (join point)
+             (45@3) .. controls ($(45@3)+(-0.40*\n{dx},0)$) and ($(join point)+(0.30*\n{dx},0)$) .. (join point);
+    \path[name path=first]
+         (p1) .. controls (p2) and (p3) .. (start);
+    \path[name path=second]
+         (end) -- (aux);
+    \draw[draw style,name intersections={of=first and second, by=inter}]
+         (end) -- (inter);
+    \foreach \pos/\offy in {inner ul/-0.20,inner ll/0.20} {
+        \path[name path=third]
+             let \n{dx}={\TotalHeight/\Rows} in
+             (\pos) -- +(0.20*\n{dx},\offy*\n{dx});
+        \draw[draw style,name intersections={of=big spiral and third, by=inter}]
+              (\pos) -- (inter);
+    }
+}
+
+% draw and fill a square
+\newcommand*\FillDrawSquare[3]{%
+    \draw[line cap=round,line join=round,draw=DrawOuter,line width=\LineWidth cm]
+         let \n{width}={\TotalHeight/\Rows},
+             \n{outerxpos}={#2*\n{width}},
+             \n{outerypos}={#1*\n{width}},
+             \n{outerdrawxpos}={\n{outerxpos}+(0.5*(\Separation+\LineWidth))},
+             \n{outerdrawypos}={\n{outerypos}+(0.5*(\Separation+\LineWidth))},
+             \n{outerwidth}={\n{width}-(\Separation+\LineWidth)}
+          in (\n{outerdrawxpos},\n{outerdrawypos})
+                 rectangle + (\n{outerwidth},\n{outerwidth})
+    ;
+    \path[line cap=round,line join=round,#3,fill=FillInnerSquare,line width=\LineWidth cm]
+         let \n{width}={\TotalHeight/\Rows},
+             \n{outerxpos}={#2*\n{width}},
+             \n{outerypos}={#1*\n{width}},
+             \n{outerdrawxpos}={\n{outerxpos}+(1.5*(\Separation+\LineWidth))},
+             \n{outerdrawypos}={\n{outerypos}+(1.5*(\Separation+\LineWidth))},
+             \n{outerwidth}={\n{width}-(3*(\Separation+\LineWidth))}
+          in (\n{outerdrawxpos},\n{outerdrawypos})
+                 rectangle + (\n{outerwidth},\n{outerwidth})
+    ;
+}
+
+% draw a square
+\newcommand*\DrawSquare[2]{%
+    \FillDrawSquare{#1}{#2}{}%
+}
+
+% draw a compound square
+\newcommand*\DrawCompoundSquare[2]{%
+    \FillDrawSquare{#1}{#2}{,draw=DrawOuter}%
+}
+
+% draw the title
+\newcommand*\DrawTitle[0]{%
+    \draw
+          let \n{width}={\TotalHeight/\Rows},
+              \n{xpos}={(\MidCols+0.5)*\n{width}},
+              \n{ypos}={((0.5*(1+\MidRows+\Rows))*\n{width}},
+              \p{pos}=(\n{xpos},\n{ypos}) in
+          (\p{pos}) node[scale=1.5,shape=rectangle split,rectangle split parts=2]
+	      {\bfseries\normalsize This is your \nodepart{two}\bfseries\normalsize Latex cover \nodepart{three}\bfseries\small Name}
+    ;
+}
+
+\begin{document}
+\begin{titlepage}
+    \newgeometry{margin=0mm}
+    \centering  \sffamily
+\begin{tikzpicture}[outer sep=0pt]
+    \fill[FillBackground]
+         let \n{width}={\TotalHeight/\Rows},
+             \p{offset}=(1.5*\n{width},1.5*\n{width})
+         in (0.5*\n{width},0.5*\n{width}) rectangle
+            ($(\p{offset})+(\Cols*\n{width},\Rows*\n{width})$) ;
+    \foreach \row/\col in {
+             1/1,1/\MidCols,1/\Cols,
+             \MidRows/1,\MidRows/\MidCols,\MidRows/\Cols,
+             \Rows/1,\Rows/\Cols} {
+        \DrawCompoundSquare{\row}{\col}
+    }
+    \DrawCompoundSquare{\Rows}{\MidCols}
+    \foreach \col in {1,\Cols} {
+        \foreach \row in {2,...,\PredMidRows} {
+            \DrawSquare{\row}{\col}
+        }
+        \foreach \row in {\SuccMidRows,...,\Rows} {
+            \DrawSquare{\row}{\col}
+        }
+    }
+    \foreach \row in {2,...,\PredMidRows} {
+        \DrawSquare{\row}{\MidCols}
+    }
+    \foreach \row in {1,\MidRows,\Rows} {
+        \foreach \col in {2,...,\PredMidCols} {
+            \DrawSquare{\row}{\col}
+        }
+        \foreach \col in {\SuccMidCols,...,\PredCols} {
+            \DrawSquare{\row}{\col}
+        }
+    }
+    \foreach \row in {3,5,7,9} {
+        \foreach \col in {4,9} {
+            \DrawOrnament{\row}{\col}
+        }
+    }
+    \DrawTitle
+\end{tikzpicture}
+\end{titlepage}
+\restoregeometry
+
+\end{document}
