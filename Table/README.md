@@ -28,4 +28,6 @@ B (cite)  & 15883 & 5.2e-8 & 7.1 & 32023 & 1.1e-11 & 1.4\\
 C (cite)   & 11180 & 8.0e-9 & 4.3 & 17348 & 1.5e-11 & 6.6 \\\bottomrule
 \end{tabular}
 
+\end{document}
+
 ``` 
