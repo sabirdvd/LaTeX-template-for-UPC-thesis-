@@ -1,4 +1,4 @@
-# LaTeX template for UPC thesis (with UPC logo)
+# LaTeX template for UPC thesis 
  [Oxford/Cambridge LaTeX Phd thesis template](https://github.com/mcmanigle/OxThesis) with ACL/CVPR conf temp inspired modification.
 
 
