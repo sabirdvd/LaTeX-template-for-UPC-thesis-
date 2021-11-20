@@ -16,7 +16,7 @@ C (cite)   & 11180 & 8.0e-9 & 4.3 & 17348 & 1.5e-11 & 6.6 \\\hline
 
 \section{Better version with booktabs}
 
-% better version with booktabs with booktabs.
+% better version with booktabs.
 \begin{tabular}{lcccccc}\toprule
 & \multicolumn{3}{c}{Unigram} & \multicolumn{3}{c}{Bigram}
 \\\cmidrule(lr){2-4}\cmidrule(lr){5-7}
