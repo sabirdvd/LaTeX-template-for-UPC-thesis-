@@ -28,3 +28,6 @@ pdflatex ociamthesismain.tex
 ```
 
 output file  --> ``ociamthesismain.pdf``
+
+## More official logo  
+[UPC logo website](https://www.upc.edu/comunicacio/ca/identitat/principis-de-la-normativa-grafica)
