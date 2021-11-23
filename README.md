@@ -17,7 +17,7 @@ To compile the temp
 ```
 pdflatex ociamthesismain.tex 
 ```
-for the bibtext
+for the bibtext for ```refs.bib```
 
 ```
 bibtex ociamthesismain.aux
