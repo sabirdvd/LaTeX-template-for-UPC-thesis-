@@ -31,6 +31,12 @@ pdflatex ociamthesismain.tex
 output file  --> ``ociamthesismain.pdf``
 
 
+For adding more Chapter ...etc 
+
+```
+ociamthesismain.tex
+```
+
 For adding more custom code 
 
 ```
