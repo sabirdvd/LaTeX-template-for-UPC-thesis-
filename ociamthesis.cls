@@ -66,9 +66,11 @@
 % Latest Logo, Square version (the default!)
 % you need an oxlogo.eps or oxlogo.pdf file as appropriate
 %\def\logo{{\includegraphics[width=32mm]{oxlogo}}}
-\def\logo{{\includegraphics[width=20mm]{oxlogo}}}
-}{}
+%\def\logo{{\includegraphics[width=20mm]{oxlogo}}}
+%}{}
 
+\def\logo{{\includegraphics[width=20mm]{upclogo.pdf}}}
+}{}
 %
 % Define text area of page and margin offsets
 %
