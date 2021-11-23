@@ -44,4 +44,4 @@ ociamthesis.cls
 ```
 
 ## More official logo  
-The standard regulation of the [UPC logo](https://www.upc.edu/comunicacio/ca/identitat/principis-de-la-normativa-grafica)
+The standard regulation of the [UPC logo - Principis de la normativa visual corporativa](https://www.upc.edu/comunicacio/ca/identitat/principis-de-la-normativa-grafica)
