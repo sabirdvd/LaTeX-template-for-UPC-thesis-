@@ -37,7 +37,7 @@ For adding more Chapter ...etc
 ociamthesismain.tex
 ```
 
-For adding more custom code 
+For adding more backend custom code 
 
 ```
 ociamthesis.cls
