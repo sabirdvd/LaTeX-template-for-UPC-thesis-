@@ -21,8 +21,10 @@ for the bibtext
 ```
 bibtex ociamthesismain.aux
 ``` 
-then run again
+then run again 
 
 ```
 pdflatex ociamthesismain.tex 
 ```
+
+output file  --> ``ociamthesismain.pdf``
