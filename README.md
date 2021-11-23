@@ -7,7 +7,7 @@
 3. [Figures](https://github.com/sabirdvd/LaTeX-template-for-UPC-thesis-/tree/main/Figure)
 4. [Table](https://github.com/sabirdvd/LaTeX-template-for-UPC-thesis-/tree/main/Table)
 5. [Cover](https://github.com/sabirdvd/LaTeX-template-for-UPC-thesis-/tree/main/Cover)
-6. [logo](https://github.com/sabirdvd/LaTeX-template-for-UPC-thesis-/blob/main/README.md#more-official-logo)
+6. [official logo](https://github.com/sabirdvd/LaTeX-template-for-UPC-thesis-/blob/main/README.md#more-official-logo)
 
 
 ## Overview 
