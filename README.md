@@ -12,7 +12,7 @@
 
 
 ## Overview 
-This is a template that based on [Oxford/Cambridge LaTeX Phd thesis template](https://github.com/mcmanigle/OxThesis) with ACL/CVPR confer template inspired modification.
+This is a template that based on [Oxford/Cambridge LaTeX Phd thesis template](https://github.com/mcmanigle/OxThesis) with ACL/CVPR confer template inspired modification.  For the presentation template please have a look at [Beamer presentations template](https://github.com/sabirdvd/LaTeX-template-for-UPC-thesis-/tree/main/Beamer).   
 
 To compile the temp 
 ```
