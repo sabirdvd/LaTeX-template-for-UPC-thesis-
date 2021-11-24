@@ -16,3 +16,6 @@ uncomment  ```\setbeameroption{show notes on second screen=right} ```
 ```
 Not that you need two screens to make this work.. [read more](https://gist.github.com/andrejbauer/ac361549ac2186be0cdb) 
 
+Also, we need to downlaod this python package [Pympress](https://github.com/Cimbali/pympress)
+
+
