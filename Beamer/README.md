@@ -14,5 +14,5 @@ uncomment  ```\setbeameroption{show notes on second screen=right} ```
 ``` 
 \note[item]{same text}
 ```
-Not that you need two screens to make this work.. 
+Not that you need two screens to make this work.. [read more](https://gist.github.com/andrejbauer/ac361549ac2186be0cdb) 
 
