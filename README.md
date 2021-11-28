@@ -1,7 +1,5 @@
 # LaTeX template for UPC thesis (unofficial)
 
-
-
 ##  Contents
 0. [Overview](#Overview)
 3. [Figures](https://github.com/sabirdvd/LaTeX-template-for-UPC-thesis-/tree/main/Figure)
