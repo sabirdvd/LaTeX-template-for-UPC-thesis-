@@ -28,3 +28,8 @@ C (cite)   & 11180 & 8.0e-9 & 4.3 & 17348 & 1.5e-11 & 6.6 \\\bottomrule
 \end{tabular}
 
 ``` 
+
+```
+pdflatex main.tex
+```
+output sample ``main.pdf``
