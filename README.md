@@ -1,4 +1,4 @@
-# LaTeX template for UPC thesis 
+# LaTeX template for UPC thesis (unofficial)
 
 
 
