@@ -1,4 +1,5 @@
-# LaTeX template for UPC thesis (unofficial)
+# LaTeX template for UPC thesis
+This is  not an official UPC template. I gather the resources for my personal use. And I'm happy to share it with anyone who wants to use something out-of-the-box BS/Master/Ph.D. 
 
 ##  Contents
 0. [Overview](#Overview)
