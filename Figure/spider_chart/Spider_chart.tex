@@ -1,0 +1,140 @@
+% Author: Ahmed Sabir (May 2024)
+\documentclass[varwidth]{standalone}[2011/222/21]
+\usepackage{pgfplots}
+\renewcommand*{\familydefault}{\sfdefault}
+\usepackage{verbatim}
+\usepackage[active,tightpage,floats]{preview}
+\setlength\PreviewBorder{5pt}%
+\definecolor{BLUE-light}{rgb}{0.29, 0.59, 0.82}
+\definecolor{BLUE-cu}{rgb}{0.0, 0.5, 0.40}
+\definecolor{red-cu}{rgb}{0.9, 0.4, 0.38}
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+\newcommand{\customfont}[2]{\fontsize{#1}{#2}\selectfont}
+\usepackage{tikz}
+\usetikzlibrary{shapes, calc}
+
+\begin{document}
+
+\newcommand{\D}{8} % Number of dimensions
+\newcommand{\U}{6} % Number of levels
+
+\newdimen\R % Maximal diagram radius
+\R=3.5cm
+\newdimen\L % Radius to put dimension labels
+\L=4cm
+
+\newcommand{\A}{360/\D} % Angle between dimension axes
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[scale=1]
+  \path (0:0cm) coordinate (O); % Center
+
+  % Draw the spiderweb
+  \foreach \X in {1,...,\D}{
+    \draw (\X*\A:0) -- (\X*\A:\R);
+  }
+
+  % Draw concentric circles and radial lines
+  \foreach \Y in {0,...,\U}{
+    \foreach \X in {1,...,\D}{
+      \path (\X*\A:\Y*\R/\U) coordinate (D\X-\Y);
+      \fill (D\X-\Y) circle (1pt);
+    }
+    \draw [opacity=0.3, dotted, line width=1pt] (0:\Y*\R/\U) \foreach \X in {1,...,\D}{
+        -- (\X*\A:\Y*\R/\U)
+    } -- cycle;
+  }
+  \path (1*\A:\L) node (L1) {};
+  % ... Add other labels ...
+
+
+% Drawing additional concentric circles for decimal values
+\foreach \Y in {0,...,\U}{
+  \foreach \X in {1,...,\D}{
+    \path (\X*\A:\Y*\R/\U) coordinate (D\X-\Y);
+    \fill (D\X-\Y) circle (1pt);
+  }
+  % Draw main level circle
+  \draw [opacity=0.3, dotted, line width=1pt] (0:\Y*\R/\U) \foreach \X in {1,...,\D}{
+      -- (\X*\A:\Y*\R/\U)
+  } -- cycle;
+
+  % Add intermediary circle for decimal at 0.5
+  \ifnum\Y<\U % Check to not draw beyond the last level
+    \pgfmathsetmacro{\DecimalY}{\Y + 0.5}
+    \draw [opacity=0.2, dotted, line width=0.7pt, color=gray] (0:\DecimalY*\R/\U) \foreach \X in {1,...,\D}{
+        -- (\X*\A:\DecimalY*\R/\U)
+    } -- cycle;
+  \fi
+}
+
+  % Adding numbers 
+  \foreach \Y in {1,...,\U}{
+    \node[fill=white, inner sep=1pt, font=\tiny] at (0:\Y*\R/\U) {\Y}; % Change 0 to \X*\A for numbers on all radial lines
+  }
+
+  
+
+  \path (1*\A:\L) node (L1) {\small A};
+
+  \path (2*\A:\L*0.95) node (L2) {\small B}; 
+  \path (3*\A:\L) node (L3) {\small C};
+  %\path (4*\A:\L) node (L4) {\small Netflix\textcolor{white}{.}};
+   \path (4*\A:\L*1.02) node (L4) {\small D}; %
+  \path (5*\A:\L) node (L5) {\small E};
+%  \path (6*\A:\L) node (L6) {\small Spotify};
+  \path (6*\A:\L*0.95) node (L6) {\small F}; %
+  \path (7*\A:\L) node (L7) {\small G};
+  \path (8*\A:\L) node (L8) {\small E};
+  
+
+  
+
+\filldraw[fill=BLUE-light, fill opacity=0.3, draw opacity=0.5, line width=1.5pt]
+    % ((1∗\A:0)!5.8/\U!(1∗\A:\R)(1*\A:0)!5.8/\U!(1*\A:\R)) -- % The problem is that the position needs to be calculated manually for 0.5 (5.5) on the first axis .. because the plotting package does not support it 
+    ($(1*\A:0)!3.75/\U!(1*\A:\R)$) --
+    ($(2*\A:0)!3.47/\U!(2*\A:\R)$) --
+     ($(3*\A:0)!2.89/\U!(3*\A:\R)$) --
+     ($(4*\A:0)!2.87/\U!(4*\A:\R)$) --
+     ($(5*\A:0)!3.28/\U!(5*\A:\R)$) --
+     ($(6*\A:0)!4.92/\U!(6*\A:\R)$) --
+     ($(7*\A:0)!5.29/\U!(7*\A:\R)$) --
+     ($(8*\A:0)!4.59/\U!(8*\A:\R)$) -- cycle;
+
+
+\filldraw[fill=BLUE-cu, fill opacity=0.3, draw opacity=0.5, line width=1.5pt]
+    ($(1*\A:0)!4.25/\U!(1*\A:\R)$) --
+    ($(2*\A:0)!3.69/\U!(2*\A:\R)$) --
+     ($(3*\A:0)!3.50/\U!(3*\A:\R)$) --
+     ($(4*\A:0)!3.13/\U!(4*\A:\R)$) --
+     ($(5*\A:0)!3.90/\U!(5*\A:\R)$) --
+     ($(6*\A:0)!3.93/\U!(6*\A:\R)$) --
+     ($(7*\A:0)!4.19/\U!(7*\A:\R)$) --
+     ($(8*\A:0)!3.65/\U!(8*\A:\R)$) -- cycle;
+
+\filldraw[fill=red-cu, fill opacity=0.3, draw opacity=0.5, line width=1.5pt]
+    ($(1*\A:0)!3.95/\U!(1*\A:\R)$) --
+    ($(2*\A:0)!3.61/\U!(2*\A:\R)$) --
+     ($(3*\A:0)!2.81/\U!(3*\A:\R)$) --
+     ($(4*\A:0)!2.92/\U!(4*\A:\R)$) --
+     ($(5*\A:0)!3.82/\U!(5*\A:\R)$) --
+     ($(6*\A:0)!3.61/\U!(6*\A:\R)$) --
+     ($(7*\A:0)!3.75/\U!(7*\A:\R)$) --
+     ($(8*\A:0)!3.11/\U!(8*\A:\R)$) -- cycle;
+
+
+
+\matrix [below=10pt, every node/.style={anchor=west, font=\small}, column sep=5mm, row sep=0mm, anchor=north, inner sep=5pt, fill=white, rounded corners] at (current bounding box.south) {
+    \draw [color=BLUE-light, line width=3pt, opacity=0.7] (0,0) -- ++(0.5,0) node[right=0.1mm]{Model A}; &
+    \draw [color=BLUE-cu, line width=3pt, opacity=0.7] (0,0) -- ++(0.5,0) node[right=0.1mm]{Model B}; &
+    \draw [color=red-cu, line width=3pt, opacity=0.7] (0,0) -- ++(0.5,0) node[right=0.1mm]{Model C}; \\
+    };
+
+\end{tikzpicture}
+%%\caption{}
+\label{fig:spiderweb}
+\end{figure}
+
+\end{document}
